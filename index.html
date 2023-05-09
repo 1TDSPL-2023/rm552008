@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My layout</title>
         <link rel="stylesheet" href="./css/estilo.css">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
         <script src="./js/script.js" defer></script>
 
     </head>
@@ -54,25 +55,27 @@
             <h2>Fale conosco</h2>
 
             <div>
-                <form action="/apelido" method="post" onsubmit="return true">
+                <form action="index.html" method="get" onsubmit="return false">
                     <fieldset>
-                        <legend>Contato</legend>
+                        <legend>Entrar</legend>
                         <div>
                             <label for="idEmail">Email</label>
-                            <input type="email" name="txtemail" id="idEmail" required placeholder="Email">
+                            <input type="email" name="txtemail" id="idEmail" placeholder="Email" pattern="[A-za-z0-9]">
                         </div>
-                    </fieldset>
                     <div>
                         <label for="idPass">Senha</label>
-                        <input type="password" name="txtPass" id="idPass" required placeholder="Senha">
+                        <input type="password" name="txtPass" id="idPass" placeholder="Senha">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <i class="fa fa-eye-slash" aria-hidden="true"></i>
                     </div>
                     <div>
                         <label for="IdGrava">Guardar Dados</label>
-                        <input type="checkbox" name="txtGrava" id="idGrava" required>
+                        <input type="checkbox" name="txtGrava" id="idGrava">
                     </div>
                     <div>
-                        <input type="submit" value="Enviar">
+                        <button type="submit" id="btnSubmit">Entrar</button>
                     </div>
+                </fieldset>
                 </form>
             </div>
             
