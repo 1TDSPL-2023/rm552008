@@ -123,3 +123,45 @@ h2Element.textContent = "Novo título"; //QUANDO CLICA NO TÍTULO, MUDA O TEXTO
 //aElementsArray.forEach((a) => {
     //console.log(a.innerHTML);
 //})
+
+const inputUser = document.querySelector("input[type = 'email']");
+inputUser.addEventListener("focus", ()=>{
+    inputUser.setAttribute("style","outline-color:#ff0000;");
+});
+
+
+inputUser.addEventListener("keyup", ()=>{
+    const lblUser = document.querySelector("label[for='idEmail']");
+    if (inputUser.value.length < 5) {
+        lblUser.innerHTML = "<span style ='color: #ff0000'>Email : ( Mínimo de 5 caracteres )</span>";
+        inputUser.setAttribute("style","outline-color:#ff0000;");
+    }else{
+        lblUser.innerHTML = "<span style = 'color: #00ff00'>Email</span>";
+        
+        inputUser.setAttribute("style","outline-color:#00ff00;");
+    }
+    
+});
+
+//MOSTRAR A SENHA
+
+const eyePass = document.querySelector(".fa-eye");
+
+eyePass.addEventListener("click",()=>{
+    const inputPass = document.querySelector("#idPass");
+
+    //ALTERAR O TYPE
+    if (inputPass.getAttribute("type") == "password"){
+        inputPass.setAttribute("type", "text");
+    }
+});
+
+const eyeSlash = document.querySelector(".fa-eye-slash");
+
+eyeSlash.addEventListener("click",()=>{
+    const inputPass = document.querySelector("#idPass");
+
+    if (inputPass.getAttribute("type") == "text"){
+        inputPass.setAttribute("type", "password");
+    }
+});
