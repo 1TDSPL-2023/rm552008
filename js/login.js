@@ -1,20 +1,28 @@
-function insereNumero(botao, visor) {
-    
-    const meuBotao = document.getElementById(botao);
-    const meuVisor = document.getElementById(visor);
 
-    meuVisor.value += meuBotao.value;
+
+function insereNumero(botao, visor) {
+    if (botao.value == "+" || botao.value == "-" || botao.value == "*" || botao.value == "/") {
+
+        if (visor.value[visor.value.length-1] == "+" || visor.value[visor.value.length-1] == "-" || 
+        visor.value[visor.value.length-1] == "*" || visor.value[visor.value.length-1] == "/") {
+            visor.value.slice(visor.value.length -1)
+        }else{
+            visor.value += botao.value
+        }
+
+    }else{
+        visor.value += botao.value
+    }
 
 }
 
 function resultado(visor) {
-    const meuVisor = document.getElementById(visor);
+    try {
+        visor.value = eval(visor.value);
 
-    let novoVisorSemSimbolos = meuVisor.value.split("+");
-
-    let total = 0;   
-
-    novoVisorSemSimbolos.forEach((nr)=>{
-        total += parseInt(nr);  
-    });
+    } catch (error) {
+        if (visor.value[visor.value.length] == "+" || visor.value[visor.value.length] == "-" || visor.value[visor.value.length] == "*" || visor.value[visor.value.length] == "/") {
+            visor.value.slice(visor.value.length);
+        }
+    }
 }
